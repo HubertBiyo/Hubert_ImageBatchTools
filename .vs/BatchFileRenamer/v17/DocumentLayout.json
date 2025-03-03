@@ -1,0 +1,142 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "E:\\Hubert\\Code\\Trae\\Hubert_Form_BatchFileRenamer\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{A9552278-E4F7-4EE8-B5DA-AD99D2301ABC}|BatchFileRenamer\\BatchFileRenamer.csproj|e:\\hubert\\code\\trae\\hubert_form_batchfilerenamer\\batchfilerenamer\\batchrenameform.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A9552278-E4F7-4EE8-B5DA-AD99D2301ABC}|BatchFileRenamer\\BatchFileRenamer.csproj|solutionrelative:batchfilerenamer\\batchrenameform.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A9552278-E4F7-4EE8-B5DA-AD99D2301ABC}|BatchFileRenamer\\BatchFileRenamer.csproj|e:\\hubert\\code\\trae\\hubert_form_batchfilerenamer\\batchfilerenamer\\batchrenameform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A9552278-E4F7-4EE8-B5DA-AD99D2301ABC}|BatchFileRenamer\\BatchFileRenamer.csproj|solutionrelative:batchfilerenamer\\batchrenameform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A9552278-E4F7-4EE8-B5DA-AD99D2301ABC}|BatchFileRenamer\\BatchFileRenamer.csproj|e:\\hubert\\code\\trae\\hubert_form_batchfilerenamer\\batchfilerenamer\\dpimodifyform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A9552278-E4F7-4EE8-B5DA-AD99D2301ABC}|BatchFileRenamer\\BatchFileRenamer.csproj|solutionrelative:batchfilerenamer\\dpimodifyform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A9552278-E4F7-4EE8-B5DA-AD99D2301ABC}|BatchFileRenamer\\BatchFileRenamer.csproj|e:\\hubert\\code\\trae\\hubert_form_batchfilerenamer\\batchfilerenamer\\dpimodifyform.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A9552278-E4F7-4EE8-B5DA-AD99D2301ABC}|BatchFileRenamer\\BatchFileRenamer.csproj|solutionrelative:batchfilerenamer\\dpimodifyform.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A9552278-E4F7-4EE8-B5DA-AD99D2301ABC}|BatchFileRenamer\\BatchFileRenamer.csproj|e:\\hubert\\code\\trae\\hubert_form_batchfilerenamer\\batchfilerenamer\\mainmenu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A9552278-E4F7-4EE8-B5DA-AD99D2301ABC}|BatchFileRenamer\\BatchFileRenamer.csproj|solutionrelative:batchfilerenamer\\mainmenu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A9552278-E4F7-4EE8-B5DA-AD99D2301ABC}|BatchFileRenamer\\BatchFileRenamer.csproj|e:\\hubert\\code\\trae\\hubert_form_batchfilerenamer\\batchfilerenamer\\mainmenu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{A9552278-E4F7-4EE8-B5DA-AD99D2301ABC}|BatchFileRenamer\\BatchFileRenamer.csproj|solutionrelative:batchfilerenamer\\mainmenu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A9552278-E4F7-4EE8-B5DA-AD99D2301ABC}|BatchFileRenamer\\BatchFileRenamer.csproj|e:\\hubert\\code\\trae\\hubert_form_batchfilerenamer\\batchfilerenamer\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A9552278-E4F7-4EE8-B5DA-AD99D2301ABC}|BatchFileRenamer\\BatchFileRenamer.csproj|solutionrelative:batchfilerenamer\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{e5c86464-96be-4d7c-9a8b-abcb3bbf5f92}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "BatchRenameForm.Designer.cs",
+              "DocumentMoniker": "E:\\Hubert\\Code\\Trae\\Hubert_Form_BatchFileRenamer\\BatchFileRenamer\\BatchRenameForm.Designer.cs",
+              "RelativeDocumentMoniker": "BatchFileRenamer\\BatchRenameForm.Designer.cs",
+              "ToolTip": "E:\\Hubert\\Code\\Trae\\Hubert_Form_BatchFileRenamer\\BatchFileRenamer\\BatchRenameForm.Designer.cs",
+              "RelativeToolTip": "BatchFileRenamer\\BatchRenameForm.Designer.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAoAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-02T11:17:57.854Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "BatchRenameForm.cs",
+              "DocumentMoniker": "E:\\Hubert\\Code\\Trae\\Hubert_Form_BatchFileRenamer\\BatchFileRenamer\\BatchRenameForm.cs",
+              "RelativeDocumentMoniker": "BatchFileRenamer\\BatchRenameForm.cs",
+              "ToolTip": "E:\\Hubert\\Code\\Trae\\Hubert_Form_BatchFileRenamer\\BatchFileRenamer\\BatchRenameForm.cs",
+              "RelativeToolTip": "BatchFileRenamer\\BatchRenameForm.cs",
+              "ViewState": "AgIAAAEAAAAAAAAAAAAQwAoAAAAiAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-02T11:16:21.082Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "DpiModifyForm.Designer.cs",
+              "DocumentMoniker": "E:\\Hubert\\Code\\Trae\\Hubert_Form_BatchFileRenamer\\BatchFileRenamer\\DpiModifyForm.Designer.cs",
+              "RelativeDocumentMoniker": "BatchFileRenamer\\DpiModifyForm.Designer.cs",
+              "ToolTip": "E:\\Hubert\\Code\\Trae\\Hubert_Form_BatchFileRenamer\\BatchFileRenamer\\DpiModifyForm.Designer.cs",
+              "RelativeToolTip": "BatchFileRenamer\\DpiModifyForm.Designer.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAAAoAAAAnAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-02T11:00:58.738Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "DpiModifyForm.cs",
+              "DocumentMoniker": "E:\\Hubert\\Code\\Trae\\Hubert_Form_BatchFileRenamer\\BatchFileRenamer\\DpiModifyForm.cs",
+              "RelativeDocumentMoniker": "BatchFileRenamer\\DpiModifyForm.cs",
+              "ToolTip": "E:\\Hubert\\Code\\Trae\\Hubert_Form_BatchFileRenamer\\BatchFileRenamer\\DpiModifyForm.cs",
+              "RelativeToolTip": "BatchFileRenamer\\DpiModifyForm.cs",
+              "ViewState": "AgIAAD4AAAAAAAAAAAAQwEkAAAAdAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-02T10:32:16.634Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "MainMenu.cs",
+              "DocumentMoniker": "E:\\Hubert\\Code\\Trae\\Hubert_Form_BatchFileRenamer\\BatchFileRenamer\\MainMenu.cs",
+              "RelativeDocumentMoniker": "BatchFileRenamer\\MainMenu.cs",
+              "ToolTip": "E:\\Hubert\\Code\\Trae\\Hubert_Form_BatchFileRenamer\\BatchFileRenamer\\MainMenu.cs",
+              "RelativeToolTip": "BatchFileRenamer\\MainMenu.cs",
+              "ViewState": "AgIAABUAAAAAAAAAAAAIwB8AAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-02T10:27:59.11Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "MainMenu.cs [\u8BBE\u8BA1]",
+              "DocumentMoniker": "E:\\Hubert\\Code\\Trae\\Hubert_Form_BatchFileRenamer\\BatchFileRenamer\\MainMenu.cs",
+              "RelativeDocumentMoniker": "BatchFileRenamer\\MainMenu.cs",
+              "ToolTip": "E:\\Hubert\\Code\\Trae\\Hubert_Form_BatchFileRenamer\\BatchFileRenamer\\MainMenu.cs [\u8BBE\u8BA1]",
+              "RelativeToolTip": "BatchFileRenamer\\MainMenu.cs [\u8BBE\u8BA1]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-02T10:24:13.563Z",
+              "EditorCaption": " [\u8BBE\u8BA1]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Program.cs",
+              "DocumentMoniker": "E:\\Hubert\\Code\\Trae\\Hubert_Form_BatchFileRenamer\\BatchFileRenamer\\Program.cs",
+              "RelativeDocumentMoniker": "BatchFileRenamer\\Program.cs",
+              "ToolTip": "E:\\Hubert\\Code\\Trae\\Hubert_Form_BatchFileRenamer\\BatchFileRenamer\\Program.cs",
+              "RelativeToolTip": "BatchFileRenamer\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAPAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-02T09:21:09.678Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

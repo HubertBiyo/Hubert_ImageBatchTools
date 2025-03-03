@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "43UyckeQpT0=",
+  "success": true,
+  "projectFilePath": "E:\\Hubert\\Code\\Trae\\Hubert_ImageBatchTools\\ImageBatchTools\\ImageBatchTools.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\豆旭波\\.nuget\\packages\\magick.net-q16-anycpu\\14.5.0\\magick.net-q16-anycpu.14.5.0.nupkg.sha512",
+    "C:\\Users\\豆旭波\\.nuget\\packages\\magick.net.core\\14.5.0\\magick.net.core.14.5.0.nupkg.sha512"
+  ],
+  "logs": []
+}
