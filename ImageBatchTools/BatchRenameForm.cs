@@ -35,7 +35,6 @@ namespace BatchFileRenamer
                 }
             }
         }
-
         private void btnRename_Click(object sender, EventArgs e)
         {
             try
@@ -64,8 +63,12 @@ namespace BatchFileRenamer
                     Directory.CreateDirectory(outputFolder);
                 }
                 totalFiles = CountImageFiles(sourceFolder);
+                progressBar.Maximum = totalFiles;
+                progressBar.Value = 0;
+
                 ProcessDirectory(sourceFolder, outputFolder, prefix, suffix, startNumber, ref processedFiles, deleteSource);
                 
+                progressBar.Value = totalFiles; // 确保进度条显示完成
                 stopwatch.Stop();
                 string timeSpent = stopwatch.ElapsedMilliseconds < 1000 ? 
                     $"{stopwatch.ElapsedMilliseconds}毫秒" : 
@@ -83,6 +86,10 @@ namespace BatchFileRenamer
             catch (Exception ex)
             {
                 MessageBox.Show($"处理过程中出现错误：{ex.Message}", "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                progressBar.Value = 0; // 重置进度条
             }
         }
 
@@ -117,6 +124,8 @@ namespace BatchFileRenamer
             
                 File.Copy(file, newPath);
                 processedCount++;
+                progressBar.Value = processedCount; // 更新进度条
+                Application.DoEvents(); // 确保界面响应
             }
             // 递归处理子文件夹
             foreach (string dir in Directory.GetDirectories(sourceDir))
