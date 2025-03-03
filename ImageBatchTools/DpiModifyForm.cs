@@ -9,6 +9,12 @@ namespace BatchFileRenamer
 {
     public partial class DpiModifyForm : Form
     {
+        public DpiModifyForm()
+        {
+            InitializeComponent();
+            MagickNET.Initialize();  // 初始化 ImageMagick
+        }
+
         private void btnSelectFolder_Click(object sender, EventArgs e)
         {
             using (FolderBrowserDialog folderDialog = new FolderBrowserDialog())
@@ -21,6 +27,18 @@ namespace BatchFileRenamer
             }
         }
 
+        private void btnSelectOutputFolder_Click(object sender, EventArgs e)
+        {
+            using (FolderBrowserDialog folderDialog = new FolderBrowserDialog())
+            {
+                folderDialog.Description = "选择输出文件夹";
+                if (folderDialog.ShowDialog() == DialogResult.OK)
+                {
+                    txtOutputFolder.Text = folderDialog.SelectedPath;
+                }
+            }
+        }
+
         private async void btnProcess_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrEmpty(txtSourceFolder.Text))
@@ -29,12 +47,28 @@ namespace BatchFileRenamer
                 return;
             }
 
+            if (string.IsNullOrEmpty(txtOutputFolder.Text))
+            {
+                MessageBox.Show("请选择输出文件夹！", "提示", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
             try
             {
                 btnProcess.Enabled = false;
+                btnSelectFolder.Enabled = false;
+                btnSelectOutputFolder.Enabled = false;
                 progressBar.Value = 0;
+
                 string sourceFolder = txtSourceFolder.Text;
+                string outputFolder = txtOutputFolder.Text;
                 int targetDpi = (int)numDpi.Value;
+
+                // 确保输出目录存在
+                if (!Directory.Exists(outputFolder))
+                {
+                    Directory.CreateDirectory(outputFolder);
+                }
 
                 await Task.Run(() =>
                 {
@@ -54,22 +88,23 @@ namespace BatchFileRenamer
                         {
                             using (var image = new MagickImage(file))
                             {
-                                // 保存原始属性
                                 var originalFormat = image.Format;
                                 var originalQuality = image.Quality;
                                 
-                                // 仅修改DPI
                                 image.Density = new Density(targetDpi);
                                 
+                                // 使用输出文件夹
+                                string relativePath = Path.GetRelativePath(sourceFolder, Path.GetDirectoryName(file));
+                                string outputPath = Path.Combine(outputFolder, relativePath);
+                                Directory.CreateDirectory(outputPath);
+                                
                                 string newFile = Path.Combine(
-                                    Path.GetDirectoryName(file),
-                                    Path.GetFileNameWithoutExtension(file) + $"_{targetDpi}dpi" + Path.GetExtension(file)
+                                    outputPath,
+                                    Path.GetFileNameWithoutExtension(file) + Path.GetExtension(file)
                                 );
                                 
-                                // 保持原始属性写入
                                 image.Format = originalFormat;
                                 image.Quality = originalQuality;
-                                
                                 image.Write(newFile);
                             }
                         }
@@ -100,6 +135,8 @@ namespace BatchFileRenamer
             finally
             {
                 btnProcess.Enabled = true;
+                btnSelectFolder.Enabled = true;
+                btnSelectOutputFolder.Enabled = true;
                 progressBar.Value = 0;
             }
         }
