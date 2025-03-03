@@ -15,7 +15,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Release")]
 [assembly: System.Reflection.AssemblyDescriptionAttribute("批量图片处理工具")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d07c6964e470bbd4f1858c890f10def4912a4105")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+bb9add066402129279c3d6a75b51524e210a1d1b")]
 [assembly: System.Reflection.AssemblyProductAttribute("Image Batch Tools")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ImageBatchTools")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

@@ -13,7 +13,6 @@ E:\Hubert\Code\Trae\Hubert_ImageBatchTools\ImageBatchTools\bin\Release\net9.0-wi
 E:\Hubert\Code\Trae\Hubert_ImageBatchTools\ImageBatchTools\bin\Release\net9.0-windows\runtimes\win-x64\native\Magick.Native-Q16-x64.dll
 E:\Hubert\Code\Trae\Hubert_ImageBatchTools\ImageBatchTools\bin\Release\net9.0-windows\runtimes\win-x86\native\Magick.Native-Q16-x86.dll
 E:\Hubert\Code\Trae\Hubert_ImageBatchTools\ImageBatchTools\obj\Release\net9.0-windows\ImageBatchTools.csproj.AssemblyReference.cache
-E:\Hubert\Code\Trae\Hubert_ImageBatchTools\ImageBatchTools\obj\Release\net9.0-windows\MainMenu.resources
 E:\Hubert\Code\Trae\Hubert_ImageBatchTools\ImageBatchTools\obj\Release\net9.0-windows\ImageBatchTools.csproj.GenerateResource.cache
 E:\Hubert\Code\Trae\Hubert_ImageBatchTools\ImageBatchTools\obj\Release\net9.0-windows\ImageBatchTools.GeneratedMSBuildEditorConfig.editorconfig
 E:\Hubert\Code\Trae\Hubert_ImageBatchTools\ImageBatchTools\obj\Release\net9.0-windows\ImageBatchTools.AssemblyInfoInputs.cache
@@ -27,3 +26,5 @@ E:\Hubert\Code\Trae\Hubert_ImageBatchTools\ImageBatchTools\obj\Release\net9.0-wi
 E:\Hubert\Code\Trae\Hubert_ImageBatchTools\ImageBatchTools\obj\Release\net9.0-windows\ref\ImageBatchTools.dll
 E:\Hubert\Code\Trae\Hubert_ImageBatchTools\ImageBatchTools\obj\Release\net9.0-windows\BatchFileRenamer.BatchRenameForm.resources
 E:\Hubert\Code\Trae\Hubert_ImageBatchTools\ImageBatchTools\obj\Release\net9.0-windows\BatchFileRenamer.DpiModifyForm.resources
+E:\Hubert\Code\Trae\Hubert_ImageBatchTools\ImageBatchTools\bin\Release\net9.0-windows\Resources\logo.ico
+E:\Hubert\Code\Trae\Hubert_ImageBatchTools\ImageBatchTools\obj\Release\net9.0-windows\ImageBatchTools.MainMenu.resources

@@ -1,124 +1,124 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
-  <Product Id="*" Name="Image Batch Tools" Language="2052" Version="1.0.0.0" Manufacturer="Hubert" 
-           UpgradeCode="12345678-1234-1234-1234-123456789012" Codepage="936">
-    <Package InstallerVersion="200" Compressed="yes" InstallScope="perMachine" SummaryCodepage="936" />
-    
-    <MajorUpgrade DowngradeErrorMessage="A newer version of [ProductName] is already installed." />
-    <MediaTemplate EmbedCab="yes" />
-    
-    <!-- 添加图标配置 -->
-    <Icon Id="icon.ico" SourceFile="logo.ico"/>
-    <Property Id="ARPPRODUCTICON" Value="icon.ico"/>
-    
-    <!-- 添加安装界面 -->
-    <UIRef Id="WixUI_InstallDir"/>
-    <Property Id="WIXUI_INSTALLDIR" Value="INSTALLFOLDER" />
-    
-    <!-- 删除这行 -->
-    <!--
-    <WixVariable Id="WixUILicenseRtf" Value="License.rtf"/>
-    -->
-    
-    <Feature Id="ProductFeature" Title="Image Batch Tools" Level="1">
-      <ComponentGroupRef Id="ProductComponents" />
-    </Feature>
+    <Product Id="*" Name="Image Batch Tools" Language="2052" Version="1.0.0.0" 
+             Manufacturer="Hubert" UpgradeCode="12345678-1234-1234-1234-123456789012" 
+             Codepage="1252">
+        
+        <Package InstallerVersion="200" Compressed="yes" InstallScope="perMachine" 
+                 SummaryCodepage="1252" />
 
-    <Directory Id="TARGETDIR" Name="SourceDir">
-      <Directory Id="ProgramFilesFolder">
-        <Directory Id="INSTALLFOLDER" Name="ImageBatchTools">
-          <!-- 主程序组件 -->
-          <Component Id="MainExecutable" Guid="{1234A567-B89C-4DEF-0123-456789ABCDEF}">
-            <File Id="ImageBatchTools.exe" 
-                  Source="..\ImageBatchTools\bin\Release\net9.0-windows\ImageBatchTools.exe"
-                  KeyPath="yes"/>
-            <File Id="ImageBatchToolsDll" 
-                  Source="..\ImageBatchTools\bin\Release\net9.0-windows\ImageBatchTools.dll"/>
-          </Component>
-          
-          <Directory Id="runtimes" Name="runtimes">
-            <Directory Id="win_x64" Name="win-x64">
-              <Directory Id="native" Name="native">
-                <Component Id="RuntimeNativeFiles" Guid="{8901B234-CDEF-4567-8901-234567890ABC}">
-                  <File Id="Magick.Native_Q16_x64" 
-                        Source="..\ImageBatchTools\bin\Release\net9.0-windows\runtimes\win-x64\native\Magick.Native-Q16-x64.dll"
-                        KeyPath="yes"/>
-                </Component>
-              </Directory>
+        <MajorUpgrade DowngradeErrorMessage="A newer version of [ProductName] is already installed." />
+        <MediaTemplate EmbedCab="yes" />
+
+        <!-- 图标配置 -->
+        <Icon Id="icon.ico" SourceFile="logo.ico"/>
+        <Property Id="ARPPRODUCTICON" Value="icon.ico"/>
+
+        <Feature Id="ProductFeature" Title="Image Batch Tools" Level="1">
+            <ComponentGroupRef Id="ProductComponents" />
+        </Feature>
+
+        <!-- UI -->
+        <UIRef Id="WixUI_InstallDir" />
+        <Property Id="WIXUI_INSTALLDIR" Value="INSTALLFOLDER" />
+        
+        <Directory Id="TARGETDIR" Name="SourceDir">
+            <Directory Id="ProgramFilesFolder">
+                <Directory Id="INSTALLFOLDER" Name="ImageBatchTools">
+                    <!-- 添加 Resources 目录 -->
+                    <Directory Id="ResourcesDir" Name="Resources">
+                        <Component Id="IconComponent" Guid="*">
+                            <File Id="LogoIcon" 
+                                  Source="logo.ico"
+                                  KeyPath="yes"/>
+                        </Component>
+                    </Directory>
+                    
+                    <!-- 其他组件保持不变 -->
+                    <Component Id="MainExecutable" Guid="*">
+                        <File Id="ImageBatchToolsEXE" 
+                              Source="..\ImageBatchTools\bin\Release\net9.0-windows\ImageBatchTools.exe" 
+                              KeyPath="yes" />
+                    </Component>
+
+                    <!-- 运行时文件，拆分成独立组件 -->
+                    <Component Id="ImageBatchToolsDLLComponent" Guid="*">
+                        <File Id="ImageBatchToolsDLL" 
+                              Source="..\ImageBatchTools\bin\Release\net9.0-windows\ImageBatchTools.dll"
+                              KeyPath="yes" />
+                    </Component>
+                    
+                    <Component Id="RuntimeConfigComponent" Guid="*">
+                        <File Id="RuntimeConfigJson" 
+                              Source="..\ImageBatchTools\bin\Release\net9.0-windows\ImageBatchTools.runtimeconfig.json"
+                              KeyPath="yes" />
+                    </Component>
+                    
+                    <Component Id="DepsComponent" Guid="*">
+                        <File Id="DepsJson" 
+                              Source="..\ImageBatchTools\bin\Release\net9.0-windows\ImageBatchTools.deps.json"
+                              KeyPath="yes" />
+                    </Component>
+
+                    <!-- Magick.NET 组件，也需要拆分 -->
+                    <Component Id="MagickNetCoreComponent" Guid="*">
+                        <File Id="MagickNETCore" 
+                              Source="..\ImageBatchTools\bin\Release\net9.0-windows\Magick.NET.Core.dll"
+                              KeyPath="yes" />
+                    </Component>
+                    <!-- 删除这里重复的 IconComponent -->
+                    <Component Id="MagickNetQ16Component" Guid="*">
+                        <File Id="MagickNETQ16" 
+                              Source="..\ImageBatchTools\bin\Release\net9.0-windows\Magick.NET-Q16-AnyCPU.dll"
+                              KeyPath="yes" />
+                    </Component>
+                </Directory>
             </Directory>
-          </Directory>
-          
-          <!-- Magick.NET 组件 -->
-          <Component Id="MagickComponent" Guid="{2345B678-C9DE-4DEF-1234-56789ABCDEF0}">
-            <File Id="MagickNETCore" 
-                  Source="..\ImageBatchTools\bin\Release\net9.0-windows\Magick.NET.Core.dll"
-                  KeyPath="yes"/>
-            <File Id="MagickNETQ16" 
-                  Source="..\ImageBatchTools\bin\Release\net9.0-windows\Magick.NET-Q16-AnyCPU.dll"/>
-          </Component>
-          
-          <!-- 配置文件组件 -->
-          <Component Id="ConfigFiles" Guid="{3456C789-DEFA-4BCD-2345-6789ABCDEF01}">
-            <File Id="runtimeconfig" 
-                  Source="..\ImageBatchTools\bin\Release\net9.0-windows\ImageBatchTools.runtimeconfig.json"
-                  KeyPath="yes"/>
-            <File Id="deps" 
-                  Source="..\ImageBatchTools\bin\Release\net9.0-windows\ImageBatchTools.deps.json"/>
-          </Component>
-          
-          <!-- 快捷方式组件 -->
-          <Component Id="MainShortcuts" Guid="{6789F012-BCDE-4567-8901-23456789ABCD}">
-            <File Id="ImageBatchTools.exe.shortcut" 
-                  Source="..\ImageBatchTools\bin\Release\net9.0-windows\win-x64\publish\ImageBatchTools.exe"
-                  KeyPath="yes"/>
-            <!-- 添加开始菜单快捷方式 -->
-            <Shortcut Id="ApplicationStartMenuShortcut" 
-                     Directory="ApplicationProgramsFolder"
-                     Name="Image Batch Tools"
-                     Description="Image Batch Tools"
-                     Target="[INSTALLFOLDER]ImageBatchTools.exe"
-                     WorkingDirectory="INSTALLFOLDER"
-                     Icon="icon.ico"/>
-            <!-- 添加桌面快捷方式 -->
-            <Shortcut Id="DesktopShortcut"
-                     Directory="DesktopFolder"
-                     Name="Image Batch Tools"
-                     Description="Image Batch Tools"
-                     Target="[INSTALLFOLDER]ImageBatchTools.exe"
-                     WorkingDirectory="INSTALLFOLDER"
-                     Icon="icon.ico"/>
-          </Component>
-        </Directory>
-      </Directory>
-      
-      <!-- 开始菜单文件夹 -->
-      <Directory Id="ProgramMenuFolder">
-        <Directory Id="ApplicationProgramsFolder" Name="Image Batch Tools">
-          <Component Id="ApplicationShortcutFolder" Guid="{4567D890-EFAB-4CDE-3456-789ABCDEF012}">
-            <RemoveFolder Id="CleanUpShortCut" On="uninstall"/>
-            <RegistryValue Root="HKCU" Key="Software\Hubert\ImageBatchTools" 
-                         Name="installed" Type="integer" Value="1" KeyPath="yes"/>
-          </Component>
-        </Directory>
-      </Directory>
-      
-      <Directory Id="DesktopFolder" Name="Desktop"/>
-    </Directory>
+            
+            <!-- 开始菜单快捷方式 -->
+            <Directory Id="ProgramMenuFolder">
+                <Directory Id="ApplicationProgramsFolder" Name="Image Batch Tools">
+                    <Component Id="ApplicationShortcutFolder" Guid="*">
+                        <RemoveFolder Id="ApplicationProgramsFolder" On="uninstall"/>
+                        <RegistryValue Root="HKCU" 
+                                     Key="Software\Hubert\ImageBatchTools" 
+                                     Name="installed" 
+                                     Type="integer" 
+                                     Value="1" 
+                                     KeyPath="yes"/>
+                    </Component>
+                </Directory>
+            </Directory>
 
-    <ComponentGroup Id="ProductComponents">
-      <ComponentRef Id="MainExecutable"/>
-      <ComponentRef Id="RuntimeNativeFiles"/>
-      <ComponentRef Id="MagickComponent"/>
-      <ComponentRef Id="ConfigFiles"/>
-      <ComponentRef Id="MainShortcuts"/>
-      <ComponentRef Id="ApplicationShortcutFolder"/>
-    </ComponentGroup>
-
-    <!-- 添加 WixUI 引用 -->
-    <!-- 删除这些行 -->
-    <!--
-    <WixVariable Id="WixUIBannerBmp" Value="banner.bmp"/>
-    <WixVariable Id="WixUIDialogBmp" Value="dialog.bmp"/>
-    -->
-  </Product>
+            <!-- 桌面快捷方式 -->
+            <Directory Id="DesktopFolder" Name="Desktop">
+                <Component Id="MainShortcuts" Guid="*">
+                    <Shortcut Id="ApplicationDesktopShortcut"
+                             Name="Image Batch Tools"
+                             Description="Image Batch Processing Tool"
+                             Target="[INSTALLFOLDER]ImageBatchTools.exe"
+                             WorkingDirectory="INSTALLFOLDER"
+                             Icon="icon.ico"/>  <!-- 使用图标ID而不是路径 -->
+                    <RegistryValue Root="HKCU" 
+                                 Key="Software\Hubert\ImageBatchTools" 
+                                 Name="desktop_shortcut" 
+                                 Type="integer" 
+                                 Value="1" 
+                                 KeyPath="yes"/>
+                </Component>
+            </Directory>
+        </Directory>  <!-- 只需要一个结束标签来关闭 TARGETDIR -->
+        
+        <ComponentGroup Id="ProductComponents">
+            <ComponentRef Id="MainExecutable"/>
+            <ComponentRef Id="ImageBatchToolsDLLComponent"/>
+            <ComponentRef Id="RuntimeConfigComponent"/>
+            <ComponentRef Id="DepsComponent"/>
+            <ComponentRef Id="MagickNetCoreComponent"/>
+            <ComponentRef Id="MagickNetQ16Component"/>
+            <ComponentRef Id="IconComponent"/>
+            <ComponentRef Id="MainShortcuts"/>
+            <ComponentRef Id="ApplicationShortcutFolder"/>
+        </ComponentGroup>
+    </Product>
 </Wix>

@@ -142,6 +142,7 @@ namespace BatchFileRenamer
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;  // 修改为屏幕居中
             this.MaximizeBox = false;
             this.Text = "批量重命名";
+            this.Icon = new System.Drawing.Icon(Path.Combine(Application.StartupPath, "Resources", "logo.ico"));
         
             ((System.ComponentModel.ISupportInitialize)(this.numStartNumber)).EndInit();
         

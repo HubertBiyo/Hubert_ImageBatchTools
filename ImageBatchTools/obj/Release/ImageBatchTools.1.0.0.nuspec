@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
+  <metadata>
+    <id>ImageBatchTools</id>
+    <version>1.0.0</version>
+    <authors>Hubert</authors>
+    <description>批量图片处理工具</description>
+    <repository type="git" commit="bb9add066402129279c3d6a75b51524e210a1d1b" />
+    <dependencies>
+      <group targetFramework="net9.0-windows7.0">
+        <dependency id="Magick.NET-Q16-AnyCPU" version="14.5.0" exclude="Build,Analyzers" />
+      </group>
+    </dependencies>
+    <frameworkReferences>
+      <group targetFramework="net9.0-windows7.0">
+        <frameworkReference name="Microsoft.WindowsDesktop.App.WindowsForms" />
+      </group>
+    </frameworkReferences>
+    <contentFiles>
+      <files include="any/net9.0-windows7.0/Resources/logo.ico" buildAction="Content" />
+    </contentFiles>
+  </metadata>
+  <files>
+    <file src="E:\Hubert\Code\Trae\Hubert_ImageBatchTools\ImageBatchTools\bin\Release\net9.0-windows\ImageBatchTools.runtimeconfig.json" target="lib\net9.0-windows7.0\ImageBatchTools.runtimeconfig.json" />
+    <file src="E:\Hubert\Code\Trae\Hubert_ImageBatchTools\ImageBatchTools\bin\Release\net9.0-windows\ImageBatchTools.dll" target="lib\net9.0-windows7.0\ImageBatchTools.dll" />
+    <file src="E:\Hubert\Code\Trae\Hubert_ImageBatchTools\ImageBatchTools\Resources\logo.ico" target="content\Resources\logo.ico" />
+    <file src="E:\Hubert\Code\Trae\Hubert_ImageBatchTools\ImageBatchTools\Resources\logo.ico" target="contentFiles\any\net9.0-windows7.0\Resources\logo.ico" />
+  </files>
+</package>

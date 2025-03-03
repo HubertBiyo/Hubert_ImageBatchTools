@@ -1,45 +1,60 @@
-partial class MainMenu
+using System;
+using System.Drawing;
+using System.Windows.Forms;
+using System.ComponentModel;
+
+namespace ImageBatchTools
 {
-    private Button btnBatchRename;
-    private Button btnDpiModify;
-    private Label lblTitle;
-
-    private void InitializeComponent()
+    partial class MainMenu
     {
-        this.btnBatchRename = new Button();
-        this.btnDpiModify = new Button();
-        this.lblTitle = new Label();
+        private System.ComponentModel.IContainer components = null;
+        private Button btnBatchRename;
+        private Button btnDpiModify;
 
-        // 标题
-        this.lblTitle.Text = "文件批处理工具";
-        this.lblTitle.Font = new Font(this.Font.FontFamily, 20, FontStyle.Bold);
-        this.lblTitle.AutoSize = true;
-        this.lblTitle.Location = new Point(150, 40);
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
+            {
+                components.Dispose();
+            }
+            base.Dispose(disposing);
+        }
 
-        // 批量重命名文件按钮
-        this.btnBatchRename.Text = "批量重命名文件";
-        this.btnBatchRename.Size = new Size(300, 60);
-        this.btnBatchRename.Location = new Point(100, 120);
-        this.btnBatchRename.Font = new Font(this.Font.FontFamily, 12);
-        this.btnBatchRename.Click += new EventHandler(btnBatchRename_Click);
+        private void InitializeComponent()
+        {
+            components = new System.ComponentModel.Container();
+            btnBatchRename = new Button();
+            btnDpiModify = new Button();
 
-        // DPI修改按钮
-        this.btnDpiModify.Text = "批量修改图片DPI";
-        this.btnDpiModify.Size = new Size(300, 60);
-        this.btnDpiModify.Location = new Point(100, 220);
-        this.btnDpiModify.Font = new Font(this.Font.FontFamily, 12);
-        this.btnDpiModify.Click += new EventHandler(btnDpiModify_Click);
+            SuspendLayout();
 
-        // 窗体设置
-        this.ClientSize = new Size(500, 350);
-        this.Controls.AddRange(new Control[] {
-            this.lblTitle,
-            this.btnBatchRename,
-            this.btnDpiModify
-        });
-        this.FormBorderStyle = FormBorderStyle.FixedDialog;
-        this.StartPosition = FormStartPosition.CenterScreen;
-        this.MaximizeBox = false;
-        this.Text = "文件批处理工具";
+            // 设置按钮属性
+            btnBatchRename.Font = new Font("Microsoft YaHei UI", 12F);
+            btnBatchRename.Location = new Point(100, 120);
+            btnBatchRename.Name = "btnBatchRename";
+            btnBatchRename.Size = new Size(300, 60);
+            btnBatchRename.TabIndex = 1;
+            btnBatchRename.Text = "批量重命名文件";
+
+            btnDpiModify.Font = new Font("Microsoft YaHei UI", 12F);
+            btnDpiModify.Location = new Point(100, 220);
+            btnDpiModify.Name = "btnDpiModify";
+            btnDpiModify.Size = new Size(300, 60);
+            btnDpiModify.TabIndex = 2;
+            btnDpiModify.Text = "批量修改图片DPI";
+
+            // 设置窗体属性
+            this.AutoScaleDimensions = new SizeF(7F, 17F);
+            this.AutoScaleMode = AutoScaleMode.Font;
+            this.ClientSize = new Size(500, 350);
+            this.Controls.AddRange(new Control[] { btnBatchRename, btnDpiModify });
+            this.FormBorderStyle = FormBorderStyle.FixedDialog;
+            this.MaximizeBox = false;
+            this.Name = "MainMenu";
+            this.StartPosition = FormStartPosition.CenterScreen;
+            this.Text = "文件批处理工具";
+
+            ResumeLayout(false);
+        }
     }
 }
