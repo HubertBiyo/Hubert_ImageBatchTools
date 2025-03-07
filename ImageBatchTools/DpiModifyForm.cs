@@ -88,9 +88,7 @@ namespace BatchFileRenamer
                         {
                             using (var image = new MagickImage(file))
                             {
-                                var originalFormat = image.Format;
-                                var originalQuality = image.Quality;
-                                
+                                // 修改DPI
                                 image.Density = new Density(targetDpi);
                                 
                                 // 使用输出文件夹
@@ -98,13 +96,35 @@ namespace BatchFileRenamer
                                 string outputPath = Path.Combine(outputFolder, relativePath);
                                 Directory.CreateDirectory(outputPath);
                                 
+                                string extension = Path.GetExtension(file).ToLower();
+                                bool isJpegFormat = extension == ".jpg" || extension == ".jpeg";
+                                
+                                // 设置输出文件路径和格式
+                                string newExtension = isJpegFormat ? ".jpg" : extension;
                                 string newFile = Path.Combine(
                                     outputPath,
-                                    Path.GetFileNameWithoutExtension(file) + Path.GetExtension(file)
+                                    Path.GetFileNameWithoutExtension(file) + $"_{targetDpi}dpi" + newExtension
                                 );
                                 
-                                image.Format = originalFormat;
-                                image.Quality = originalQuality;
+                                if (isJpegFormat)
+                                {
+                                    // JPEG/JPG格式：保持原格式，统一使用.jpg扩展名
+                                    image.Format = MagickFormat.Jpeg;
+                                    image.Quality = image.Quality; // 保持原始质量
+                                }
+                                else if (extension == ".png")
+                                {
+                                    // PNG格式：保持PNG，使用无损压缩
+                                    image.Format = MagickFormat.Png;
+                                    image.Settings.Compression = CompressionMethod.NoCompression;
+                                }
+                                else
+                                {
+                                    // 其他格式：保持原格式和质量
+                                    image.Format = image.Format;
+                                    image.Quality = image.Quality;
+                                }
+                                
                                 image.Write(newFile);
                             }
                         }
