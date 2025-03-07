@@ -61,15 +61,22 @@
                     </Component>
 
                     <!-- Magick.NET 组件，也需要拆分 -->
+                    <!-- Magick.NET 组件 -->
                     <Component Id="MagickNetCoreComponent" Guid="*">
                         <File Id="MagickNETCore" 
                               Source="..\ImageBatchTools\bin\Release\net9.0-windows\Magick.NET.Core.dll"
                               KeyPath="yes" />
                     </Component>
-                    <!-- 删除这里重复的 IconComponent -->
                     <Component Id="MagickNetQ16Component" Guid="*">
                         <File Id="MagickNETQ16" 
                               Source="..\ImageBatchTools\bin\Release\net9.0-windows\Magick.NET-Q16-AnyCPU.dll"
+                              KeyPath="yes" />
+                    </Component>
+                    
+                    <!-- 添加 ImageMagick 原生依赖 -->
+                    <Component Id="MagickNativeComponent" Guid="*">
+                        <File Id="MagickNativeQ16" 
+                              Source="..\ImageBatchTools\bin\Release\net9.0-windows\win-x64\Magick.Native-Q16-x64.dll"
                               KeyPath="yes" />
                     </Component>
                 </Directory>
@@ -116,6 +123,8 @@
             <ComponentRef Id="DepsComponent"/>
             <ComponentRef Id="MagickNetCoreComponent"/>
             <ComponentRef Id="MagickNetQ16Component"/>
+            <!-- 添加新组件引用 -->
+            <ComponentRef Id="MagickNativeComponent"/>
             <ComponentRef Id="IconComponent"/>
             <ComponentRef Id="MainShortcuts"/>
             <ComponentRef Id="ApplicationShortcutFolder"/>
