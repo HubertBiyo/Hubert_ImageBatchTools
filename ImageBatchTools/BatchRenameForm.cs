@@ -70,17 +70,17 @@ namespace BatchFileRenamer
                 
                 progressBar.Value = totalFiles; // 确保进度条显示完成
                 stopwatch.Stop();
-                string timeSpent = stopwatch.ElapsedMilliseconds < 1000 ? 
-                    $"{stopwatch.ElapsedMilliseconds}毫秒" : 
+                string timeSpent = stopwatch.ElapsedMilliseconds < 1000 ?
+                    $"{stopwatch.ElapsedMilliseconds}毫秒" :
                     $"{stopwatch.ElapsedMilliseconds / 1000.0:F1}秒";
 
                 MessageBox.Show(
                     $"重命名完成！\n" +
                     $"共发现：{totalFiles}个文件\n" +
                     $"成功处理：{processedFiles}个文件\n" +
-                    $"耗时：{timeSpent}", 
-                    "处理完成", 
-                    MessageBoxButtons.OK, 
+                    $"耗时：{timeSpent}",
+                    "处理完成",
+                    MessageBoxButtons.OK,
                     MessageBoxIcon.Information);
             }
             catch (Exception ex)
@@ -132,16 +132,26 @@ namespace BatchFileRenamer
             {
                 ProcessDirectory(dir, outputDir, prefix, suffix, startNumber, ref processedCount, deleteSource);
             }
-            // 如果需要删除源文件，在处理完当前文件夹后删除它
+            // 如果需要删除源文件
             if (deleteSource)
             {
                 try
                 {
-                    Directory.Delete(sourceDir, true);  // true 表示递归删除所有内容
+                    // 删除当前目录下的所有文件
+                    foreach (string file in Directory.GetFiles(sourceDir))
+                    {
+                        File.Delete(file);
+                    }
+
+                    // 如果不是根目录，则删除文件夹
+                    if (sourceDir != txtSourceFolder.Text)
+                    {
+                        Directory.Delete(sourceDir, false);  // false 表示只删除空目录
+                    }
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show($"删除文件夹 {sourceDir} 时出错：{ex.Message}", "警告", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show($"删除文件夹内容时出错：{ex.Message}", "警告", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
             }
         }
