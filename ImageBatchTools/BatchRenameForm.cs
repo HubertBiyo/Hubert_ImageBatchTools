@@ -2,6 +2,7 @@ using System;
 using System.IO;
 using System.Linq;
 using System.Windows.Forms;
+using System.IO.Compression;  // 添加到文件开头
 
 namespace BatchFileRenamer
 {
@@ -10,6 +11,7 @@ namespace BatchFileRenamer
         // 添加类级别的常量
         private const int margin = 20;
         private const int controlSpacing = 25;
+        private string currentTempPath = string.Empty;  // 添加临时路径变量
         public BatchRenameForm()
         {
             InitializeComponent();
@@ -165,12 +167,88 @@ namespace BatchFileRenamer
 
         private void btnSelectFolder_Click(object sender, EventArgs e)
         {
+            // 先清理可能存在的旧临时目录
+            CleanupTempDirectory();
+            
             using (FolderBrowserDialog folderDialog = new FolderBrowserDialog())
             {
-                folderDialog.Description = "选择要重命名的文件夹";
+                folderDialog.Description = "选择包含压缩包或图片的文件夹";
                 if (folderDialog.ShowDialog() == DialogResult.OK)
                 {
-                    txtSourceFolder.Text = folderDialog.SelectedPath;
+                    string selectedPath = folderDialog.SelectedPath;
+                    
+                    try
+                    {
+                        // 检查是否包含zip文件
+                        bool hasZipFiles = Directory.GetFiles(selectedPath, "*.zip").Any();
+                        
+                        if (hasZipFiles)
+                        {
+                            // 如果有压缩包，使用临时目录处理
+                            currentTempPath = Path.Combine(Path.GetTempPath(), "IBT_" + DateTime.Now.ToString("HHmmss"));
+                            MessageBox.Show("检测到压缩包文件，系统将自动解压到临时目录进行处理。\n解压过程可能需要一点时间，请耐心等待。", 
+                                "提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    
+                            if (Directory.Exists(currentTempPath))
+                            {
+                                Directory.Delete(currentTempPath, true);
+                            }
+                            Directory.CreateDirectory(currentTempPath);
+                    
+                            // 处理压缩包
+                            int zipIndex = 1;
+                            foreach (string zipFile in Directory.GetFiles(selectedPath, "*.zip"))
+                            {
+                                try
+                                {
+                                    string zipTempPath = Path.Combine(currentTempPath, $"YS_{zipIndex}");
+                                    Directory.CreateDirectory(zipTempPath);
+                                    ZipFile.ExtractToDirectory(zipFile, zipTempPath);
+                                    zipIndex++;
+                                }
+                                catch (Exception zipEx)
+                                {
+                                    MessageBox.Show($"解压文件 {Path.GetFileName(zipFile)} 时出错：{zipEx.Message}", 
+                                        "警告", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                                }
+                            }
+                    
+                            // 复制其他文件到临时目录
+                            foreach (string imgFile in Directory.GetFiles(selectedPath, "*.*")
+                                .Where(f => new[] { ".jpg", ".jpeg", ".png", ".gif", ".bmp", ".tiff" }
+                                .Contains(Path.GetExtension(f).ToLower())))
+                            {
+                                string destFile = Path.Combine(currentTempPath, Path.GetFileName(imgFile));
+                                File.Copy(imgFile, destFile, true);
+                            }
+                    
+                            foreach (string dir in Directory.GetDirectories(selectedPath))
+                            {
+                                string shortDirName = Path.GetFileName(dir).Substring(0, 
+                                    Math.Min(8, Path.GetFileName(dir).Length));
+                                string destDir = Path.Combine(currentTempPath, shortDirName);
+                                CopyDirectory(dir, destDir);
+                            }
+                    
+                            txtSourceFolder.Text = currentTempPath;
+                            MessageBox.Show("已准备好所有文件，处理完成后将自动清理临时文件。", "提示", 
+                                MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                        else
+                        {
+                            // 如果没有压缩包，直接使用原始目录
+                            txtSourceFolder.Text = selectedPath;
+                            currentTempPath = string.Empty;
+                        }
+                        
+                        Tag = selectedPath;
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show($"处理文件时出错：{ex.Message}", "错误", 
+                            MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        CleanupTempDirectory();
+                    }
                 }
             }
         }
@@ -265,14 +343,19 @@ namespace BatchFileRenamer
             foreach (string file in files)
             {
                 string extension = Path.GetExtension(file);
-                string newName = $"{prefix}{startNumber + processedCount}{suffix}{extension}";
-                string newPath = Path.Combine(outputDir, newName);
-            
-                if (File.Exists(newPath))
+                string newName;
+                string newPath;
+                int duplicateCount = 0;
+                
+                // 处理文件名重复的情况
+                do
                 {
-                    throw new Exception($"文件 {newName} 已存在！");
-                }
-            
+                    newName = duplicateCount == 0 
+                        ? $"{prefix}{startNumber + processedCount}{suffix}{extension}"
+                        : $"{prefix}{startNumber + processedCount}{suffix}_{duplicateCount}{extension}";
+                    newPath = Path.Combine(outputDir, newName);
+                    duplicateCount++;
+                } while (File.Exists(newPath));
                 File.Copy(file, newPath);
                 processedCount++;
                 progressBar.Value = processedCount; // 更新进度条
@@ -284,27 +367,71 @@ namespace BatchFileRenamer
                 ProcessDirectory(dir, outputDir, prefix, suffix, startNumber, ref processedCount, deleteSource);
             }
             // 如果需要删除源文件
-            if (deleteSource)
+            if (deleteSource && Tag != null)
             {
                 try
                 {
-                    // 删除当前目录下的所有文件
-                    foreach (string file in Directory.GetFiles(sourceDir))
+                    string originalPath = Tag.ToString();
+                    
+                    // 删除原始目录中的所有zip文件
+                    foreach (string zipFile in Directory.GetFiles(originalPath, "*.zip"))
                     {
-                        File.Delete(file);
+                        File.Delete(zipFile);
                     }
-
-                    // 如果不是根目录，则删除文件夹
-                    if (sourceDir != txtSourceFolder.Text)
+                    // 删除原始目录中的所有图片文件
+                    foreach (string imgFile in Directory.GetFiles(originalPath, "*.*")
+                        .Where(f => imageExtensions.Contains(Path.GetExtension(f).ToLower())))
                     {
-                        Directory.Delete(sourceDir, false);  // false 表示只删除空目录
+                        File.Delete(imgFile);
+                    }
+                    // 删除临时目录
+                    if (Directory.Exists(sourceDir))
+                    {
+                        Directory.Delete(sourceDir, true);
                     }
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show($"删除文件夹内容时出错：{ex.Message}", "警告", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show($"删除源文件时出错：{ex.Message}", "警告", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
             }
+        }
+        // 添加到类的最后，与其他方法平级
+        private void CopyDirectory(string sourceDir, string destDir)
+        {
+            // 创建目标目录
+            Directory.CreateDirectory(destDir);
+
+            // 复制文件
+            foreach (string file in Directory.GetFiles(sourceDir))
+            {
+                string destFile = Path.Combine(destDir, Path.GetFileName(file));
+                File.Copy(file, destFile);
+            }
+
+            // 递归复制子目录
+            foreach (string dir in Directory.GetDirectories(sourceDir))
+            {
+                string destSubDir = Path.Combine(destDir, Path.GetFileName(dir));
+                CopyDirectory(dir, destSubDir);
+            }
+        }
+        private void CleanupTempDirectory()
+        {
+            if (!string.IsNullOrEmpty(currentTempPath) && Directory.Exists(currentTempPath))
+            {
+                try
+                {
+                    Directory.Delete(currentTempPath, true);
+                    currentTempPath = string.Empty;
+                }
+                catch { /* 忽略清理错误 */ }
+            }
+        }
+        protected override void OnFormClosing(FormClosingEventArgs e)
+        {
+            base.OnFormClosing(e);
+            CleanupTempDirectory();
         }
     }
 }
