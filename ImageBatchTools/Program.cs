@@ -1,3 +1,5 @@
+using ImageBatchTools;
+
 namespace BatchFileRenamer;
 
 static class Program

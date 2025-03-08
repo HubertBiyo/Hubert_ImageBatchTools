@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyDescriptionAttribute("批量图片处理工具")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+c2ca315318b51aa8575fdb2491ea4f3acb0789d2")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+6cbeffc73347b61f846db69e65d67e2c4cf688b7")]
 [assembly: System.Reflection.AssemblyProductAttribute("Image Batch Tools")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ImageBatchTools")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

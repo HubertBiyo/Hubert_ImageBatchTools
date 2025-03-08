@@ -3,10 +3,6 @@
   "WorkspaceRootPath": "E:\\Hubert\\Code\\Trae\\Hubert_ImageBatchTools\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{A9552278-E4F7-4EE8-B5DA-AD99D2301ABC}|ImageBatchTools\\ImageBatchTools.csproj|e:\\hubert\\code\\trae\\hubert_imagebatchtools\\imagebatchtools\\batchrenameform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{A9552278-E4F7-4EE8-B5DA-AD99D2301ABC}|ImageBatchTools\\ImageBatchTools.csproj|solutionrelative:imagebatchtools\\batchrenameform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{A9552278-E4F7-4EE8-B5DA-AD99D2301ABC}|ImageBatchTools\\ImageBatchTools.csproj|e:\\hubert\\code\\trae\\hubert_imagebatchtools\\imagebatchtools\\batchrenameform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A9552278-E4F7-4EE8-B5DA-AD99D2301ABC}|ImageBatchTools\\ImageBatchTools.csproj|solutionrelative:imagebatchtools\\batchrenameform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -15,12 +11,12 @@
       "RelativeMoniker": "D:0:0:{A9552278-E4F7-4EE8-B5DA-AD99D2301ABC}|ImageBatchTools\\ImageBatchTools.csproj|solutionrelative:imagebatchtools\\batchrenameform.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A9552278-E4F7-4EE8-B5DA-AD99D2301ABC}|ImageBatchTools\\ImageBatchTools.csproj|E:\\Hubert\\Code\\Trae\\Hubert_ImageBatchTools\\imagebatchtools\\dpimodifyform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{A9552278-E4F7-4EE8-B5DA-AD99D2301ABC}|ImageBatchTools\\ImageBatchTools.csproj|solutionrelative:imagebatchtools\\dpimodifyform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{A9552278-E4F7-4EE8-B5DA-AD99D2301ABC}|ImageBatchTools\\ImageBatchTools.csproj|e:\\hubert\\code\\trae\\hubert_imagebatchtools\\imagebatchtools\\dpimodifyform.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A9552278-E4F7-4EE8-B5DA-AD99D2301ABC}|ImageBatchTools\\ImageBatchTools.csproj|solutionrelative:imagebatchtools\\dpimodifyform.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A9552278-E4F7-4EE8-B5DA-AD99D2301ABC}|ImageBatchTools\\ImageBatchTools.csproj|E:\\Hubert\\Code\\Trae\\Hubert_ImageBatchTools\\imagebatchtools\\mainmenu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{A9552278-E4F7-4EE8-B5DA-AD99D2301ABC}|ImageBatchTools\\ImageBatchTools.csproj|solutionrelative:imagebatchtools\\mainmenu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{A9552278-E4F7-4EE8-B5DA-AD99D2301ABC}|ImageBatchTools\\ImageBatchTools.csproj|E:\\Hubert\\Code\\Trae\\Hubert_ImageBatchTools\\imagebatchtools\\batchrenameform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{A9552278-E4F7-4EE8-B5DA-AD99D2301ABC}|ImageBatchTools\\ImageBatchTools.csproj|solutionrelative:imagebatchtools\\batchrenameform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     }
   ],
   "DocumentGroupContainers": [
@@ -30,67 +26,55 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "DpiModifyForm.Designer.cs",
+              "DocumentMoniker": "E:\\Hubert\\Code\\Trae\\Hubert_ImageBatchTools\\ImageBatchTools\\DpiModifyForm.Designer.cs",
+              "RelativeDocumentMoniker": "ImageBatchTools\\DpiModifyForm.Designer.cs",
+              "ToolTip": "E:\\Hubert\\Code\\Trae\\Hubert_ImageBatchTools\\ImageBatchTools\\DpiModifyForm.Designer.cs",
+              "RelativeToolTip": "ImageBatchTools\\DpiModifyForm.Designer.cs",
+              "ViewState": "AgIAACMAAAAAAAAAAAD4vygAAAApAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-08T02:40:11.578Z"
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "BatchRenameForm.cs",
+              "DocumentMoniker": "E:\\Hubert\\Code\\Trae\\Hubert_ImageBatchTools\\ImageBatchTools\\BatchRenameForm.cs",
+              "RelativeDocumentMoniker": "ImageBatchTools\\BatchRenameForm.cs",
+              "ToolTip": "E:\\Hubert\\Code\\Trae\\Hubert_ImageBatchTools\\ImageBatchTools\\BatchRenameForm.cs",
+              "RelativeToolTip": "ImageBatchTools\\BatchRenameForm.cs",
+              "ViewState": "AgIAAD4AAAAAAAAAAAAqwEQAAAAxAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-08T02:35:20.495Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "BatchRenameForm.Designer.cs",
+              "DocumentMoniker": "E:\\Hubert\\Code\\Trae\\Hubert_ImageBatchTools\\ImageBatchTools\\BatchRenameForm.Designer.cs",
+              "RelativeDocumentMoniker": "ImageBatchTools\\BatchRenameForm.Designer.cs",
+              "ToolTip": "E:\\Hubert\\Code\\Trae\\Hubert_ImageBatchTools\\ImageBatchTools\\BatchRenameForm.Designer.cs",
+              "RelativeToolTip": "ImageBatchTools\\BatchRenameForm.Designer.cs",
+              "ViewState": "AgIAAGQAAAAAAAAAAAAkwHIAAAAYAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-08T02:34:21.017Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
               "Title": "BatchRenameForm.cs [\u8BBE\u8BA1]",
               "DocumentMoniker": "E:\\Hubert\\Code\\Trae\\Hubert_ImageBatchTools\\ImageBatchTools\\BatchRenameForm.cs",
               "RelativeDocumentMoniker": "ImageBatchTools\\BatchRenameForm.cs",
               "ToolTip": "E:\\Hubert\\Code\\Trae\\Hubert_ImageBatchTools\\ImageBatchTools\\BatchRenameForm.cs [\u8BBE\u8BA1]",
               "RelativeToolTip": "ImageBatchTools\\BatchRenameForm.cs [\u8BBE\u8BA1]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-03T02:54:57.277Z",
-              "EditorCaption": " [\u8BBE\u8BA1]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "BatchRenameForm.cs",
-              "DocumentMoniker": "E:\\Hubert\\Code\\Trae\\Hubert_ImageBatchTools\\ImageBatchTools\\BatchRenameForm.cs",
-              "RelativeDocumentMoniker": "ImageBatchTools\\BatchRenameForm.cs",
-              "ToolTip": "E:\\Hubert\\Code\\Trae\\Hubert_ImageBatchTools\\ImageBatchTools\\BatchRenameForm.cs",
-              "RelativeToolTip": "ImageBatchTools\\BatchRenameForm.cs",
-              "ViewState": "AgIAACYAAAAAAAAAAIAzwDQAAAAPAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-03T01:45:12.902Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "BatchRenameForm.Designer.cs",
-              "DocumentMoniker": "E:\\Hubert\\Code\\Trae\\Hubert_ImageBatchTools\\ImageBatchTools\\BatchRenameForm.Designer.cs",
-              "RelativeDocumentMoniker": "ImageBatchTools\\BatchRenameForm.Designer.cs",
-              "ToolTip": "E:\\Hubert\\Code\\Trae\\Hubert_ImageBatchTools\\ImageBatchTools\\BatchRenameForm.Designer.cs",
-              "RelativeToolTip": "ImageBatchTools\\BatchRenameForm.Designer.cs",
-              "ViewState": "AgIAAAsAAAAAAAAAAAAqwBMAAAA9AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-03T01:11:34.386Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "MainMenu.cs [\u8BBE\u8BA1]",
-              "DocumentMoniker": "E:\\Hubert\\Code\\Trae\\Hubert_ImageBatchTools\\ImageBatchTools\\MainMenu.cs",
-              "RelativeDocumentMoniker": "ImageBatchTools\\MainMenu.cs",
-              "ToolTip": "E:\\Hubert\\Code\\Trae\\Hubert_ImageBatchTools\\ImageBatchTools\\MainMenu.cs [\u8BBE\u8BA1]",
-              "RelativeToolTip": "ImageBatchTools\\MainMenu.cs [\u8BBE\u8BA1]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-03T01:09:37.307Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "DpiModifyForm.cs [\u8BBE\u8BA1]",
-              "DocumentMoniker": "E:\\Hubert\\Code\\Trae\\Hubert_ImageBatchTools\\ImageBatchTools\\DpiModifyForm.cs",
-              "RelativeDocumentMoniker": "ImageBatchTools\\DpiModifyForm.cs",
-              "ToolTip": "E:\\Hubert\\Code\\Trae\\Hubert_ImageBatchTools\\ImageBatchTools\\DpiModifyForm.cs [\u8BBE\u8BA1]",
-              "RelativeToolTip": "ImageBatchTools\\DpiModifyForm.cs [\u8BBE\u8BA1]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-03T01:09:30.731Z"
+              "WhenOpened": "2025-03-08T02:01:37.844Z"
             }
           ]
         }
