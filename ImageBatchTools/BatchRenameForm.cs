@@ -367,32 +367,33 @@ namespace BatchFileRenamer
                 ProcessDirectory(dir, outputDir, prefix, suffix, startNumber, ref processedCount, deleteSource);
             }
             // 如果需要删除源文件
-            if (deleteSource && Tag != null)
+            if (deleteSource && !string.IsNullOrEmpty(Tag?.ToString()))
             {
+                string originalPath = Tag.ToString();
                 try
                 {
-                    string originalPath = Tag.ToString();
-                    
-                    // 删除原始目录中的所有zip文件
+                    // 删除原始压缩包
                     foreach (string zipFile in Directory.GetFiles(originalPath, "*.zip"))
                     {
                         File.Delete(zipFile);
                     }
-                    // 删除原始目录中的所有图片文件
+                    // 删除原始图片文件
                     foreach (string imgFile in Directory.GetFiles(originalPath, "*.*")
-                        .Where(f => imageExtensions.Contains(Path.GetExtension(f).ToLower())))
+                        .Where(f => new[] { ".jpg", ".jpeg", ".png", ".gif", ".bmp", ".tiff" }
+                        .Contains(Path.GetExtension(f).ToLower())))
                     {
                         File.Delete(imgFile);
                     }
-                    // 删除临时目录
-                    if (Directory.Exists(sourceDir))
+                    // 删除子文件夹
+                    foreach (string dir in Directory.GetDirectories(originalPath))
                     {
-                        Directory.Delete(sourceDir, true);
+                        Directory.Delete(dir, true);
                     }
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show($"删除源文件时出错：{ex.Message}", "警告", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show($"删除源文件时出错：{ex.Message}", "警告", 
+                        MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
             }
         }
