@@ -1,6 +1,7 @@
 obj/
 # Visual Studio 临时文件
 .vs/
+bin/
 
 # 项目评估缓存（根据你的 git status 输出）
 ProjectEvaluation/
